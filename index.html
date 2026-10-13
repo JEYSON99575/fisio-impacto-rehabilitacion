@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fisio Impacto Rehabilitación | Fisioterapia Integral Especializada</title>
+  <meta name="description" content="Fisioterapia deportiva, ortopédica, pediátrica y terapia del dolor. Evaluación integral y atención personalizada en Fisio Impacto Rehabilitación." />
+  <meta name="theme-color" content="#214A91" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            primary: '#214A91',
+            vital: '#7EDC3A',
+            ink: '#1e293b',
+            logo: { green: '#7EDC3A', blue: '#214A91', pink: '#EE66B0', gold: '#F9B82F', orange: '#E64A0B', olive: '#3a7d1c' }
+          },
+          boxShadow: {
+            soft: '0 14px 36px -14px rgba(33,74,145,.35)',
+            card: '0 8px 30px -12px rgba(30,41,59,.18)',
+            glow: '0 0 40px -6px rgba(126,220,58,.55)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    section[id] { scroll-margin-top: 5rem; }
+    body { background: #f8fafc; }
+
+    /* ===== Logotipo: imagen original con fondo transparente ===== */
+    .logo-img { display: block; height: 100%; width: auto; max-width: none; }
+    .logo-enter { clip-path: inset(0 100% 0 0); animation: logoReveal 2s cubic-bezier(.7,0,.2,1) forwards; animation-delay: var(--d, .1s); }
+    @keyframes logoReveal { to { clip-path: inset(0 0 0 0); } }
+    .logo-float { animation: logoFloat 6s ease-in-out infinite; }
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+    .logo-tilt { transition: transform .35s ease-out; transform-style: preserve-3d; will-change: transform; }
+
+    /* ===== Fondo animado del hero ===== */
+    .hero-bg { background: linear-gradient(160deg, #f4f9ff 0%, #ffffff 55%, #f1fbe9 100%); }
+    .blob { position: absolute; border-radius: 9999px; filter: blur(70px); opacity: .45; pointer-events: none; animation: float 16s ease-in-out infinite; }
+    .blob-1 { width: 380px; height: 380px; background: #7EDC3A; top: -90px; left: -80px; }
+    .blob-2 { width: 440px; height: 440px; background: #214A91; opacity: .22; top: 8%; right: -140px; animation-delay: -5s; }
+    .blob-3 { width: 320px; height: 320px; background: #F9B82F; opacity: .25; bottom: -80px; left: 35%; animation-delay: -9s; }
+    @keyframes float {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      33% { transform: translate3d(40px,-25px,0) scale(1.06); }
+      66% { transform: translate3d(-25px,30px,0) scale(.96); }
+    }
+    .dot-grid {
+      background-image: radial-gradient(rgba(33,74,145,.18) 1.2px, transparent 1.2px);
+      background-size: 26px 26px;
+      animation: gridMove 18s linear infinite;
+    }
+    @keyframes gridMove { to { background-position: 26px 26px; } }
+    .particle { position: absolute; border-radius: 9999px; opacity: .6; animation: particle 9s ease-in-out infinite; }
+    @keyframes particle {
+      0%, 100% { transform: translateY(0) translateX(0); opacity: .35; }
+      50% { transform: translateY(-30px) translateX(12px); opacity: .9; }
+    }
+    .orbit { position: absolute; inset: -6%; border-radius: 9999px; border: 2px dashed rgba(33,74,145,.2); animation: spin 30s linear infinite; }
+    .orbit::after {
+      content: ""; position: absolute; top: -6px; left: 50%; width: 12px; height: 12px; margin-left: -6px;
+      border-radius: 9999px; background: #7EDC3A; box-shadow: 0 0 16px #7EDC3A;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hero-in { opacity: 0; transform: translateY(18px); animation: heroIn .9s cubic-bezier(.2,.7,.2,1) forwards; }
+    @keyframes heroIn { to { opacity: 1; transform: none; } }
+
+    /* Palabra rotativa del titular */
+    .rotator { display: inline-block; position: relative; min-width: 9ch; }
+    .rotator span { display: inline-block; transition: opacity .45s ease, transform .45s ease, filter .45s ease; }
+    .rotator span.out { opacity: 0; transform: translateY(-18px); filter: blur(6px); }
+    .rotator span.in { opacity: 1; transform: none; filter: none; }
+    .text-grad {
+      background: linear-gradient(90deg, #214A91, #3a9d2a 55%, #7EDC3A, #214A91);
+      background-size: 220% 100%;
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: gradMove 6s ease infinite;
+    }
+    @keyframes gradMove { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+    /* Franja animada */
+    .marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* Barra de progreso de scroll */
+    #progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 60; background: linear-gradient(90deg, #214A91, #7EDC3A); }
+
+    /* Revelado al hacer scroll */
+    .reveal { opacity: 0; transform: translateY(28px) scale(.98); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); transition-delay: var(--rd, 0ms); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    /* Tarjetas 3D con brillo */
+    .tilt { transform-style: preserve-3d; will-change: transform; transition: transform .35s ease, box-shadow .35s ease; }
+    .shine { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .4s;
+      background: radial-gradient(400px circle at var(--sx, 50%) var(--sy, 0%), rgba(255,255,255,.7), transparent 45%); }
+    .tilt:hover .shine { opacity: 1; }
+
+    /* Servicios */
+    .service-card { position: relative; overflow: hidden; background: #fff; }
+    .service-card::before {
+      content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px;
+      background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .5s ease;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card .icon-chip { background: var(--accent); box-shadow: 0 12px 24px -10px var(--accent); transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+    .service-card:hover .icon-chip { transform: rotate(-8deg) scale(1.12); }
+    .accent-text { color: var(--accent); }
+
+    /* Variantes */
+    .variant-img { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+    .variant-card:hover .variant-img { transform: translateY(-6px) scale(1.04) rotate(-1.5deg); }
+
+    /* Botones */
+    .btn { position: relative; overflow: hidden; isolation: isolate; cursor: pointer; transition: transform .3s ease, box-shadow .3s ease, background-color .3s ease, color .3s ease, border-color .3s ease; }
+    .btn::after {
+      content: ""; position: absolute; top: 0; left: -75%; width: 50%; height: 100%; z-index: -1;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,.45), transparent);
+      transform: skewX(-20deg); transition: left .7s ease;
+    }
+    .btn:hover::after { left: 130%; }
+    .btn:hover { transform: translateY(-3px); }
+    .btn:active { transform: translateY(0) scale(.98); }
+    .ripple { position: absolute; border-radius: 9999px; background: rgba(255,255,255,.55); transform: scale(0); animation: ripple .65s ease-out forwards; pointer-events: none; z-index: 2; }
+    @keyframes ripple { to { transform: scale(4); opacity: 0; } }
+    .magnetic { transition: transform .25s ease-out; }
+
+    /* Header */
+    .header-scrolled {
+      background: rgba(255,255,255,.8); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px);
+      box-shadow: 0 8px 30px -14px rgba(30,41,59,.25);
+    }
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: ""; position: absolute; left: 0; bottom: -6px; height: 2px; width: 100%;
+      background: linear-gradient(90deg, #214A91, #7EDC3A); transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
+    }
+    .nav-link:hover::after, .nav-link.is-active::after { transform: scaleX(1); }
+    .nav-link.is-active { color: #214A91; }
+
+    /* Filtros y zonas */
+    .filter-btn { background: #fff; color: #1e293b; border: 2px solid #e2e8f0; transition: all .3s ease; }
+    .filter-btn:hover { border-color: #214A91; color: #214A91; transform: translateY(-2px); }
+    .filter-btn.is-active { background: #214A91; color: #fff; border-color: #214A91; box-shadow: 0 10px 22px -10px rgba(33,74,145,.6); }
+    .zone-btn { transition: all .3s ease; background: #fff; }
+    .zone-btn:hover { transform: translateY(-4px); box-shadow: 0 14px 24px -14px rgba(33,74,145,.45); }
+    .zone-btn.is-selected { border-color: #7EDC3A; background: linear-gradient(180deg, rgba(126,220,58,.14), rgba(126,220,58,.02)); color: #3a7d1c; box-shadow: 0 14px 28px -14px rgba(126,220,58,.7); transform: translateY(-4px); }
+    #symptom-result { animation: popIn .5s cubic-bezier(.2,.7,.2,1); }
+    @keyframes popIn { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+    .service-more { animation: popIn .4s ease; }
+    input[type="range"] { accent-color: #214A91; }
+
+    .wave { display: block; width: 100%; height: 60px; }
+
+    .pulse-ring::before {
+      content: ""; position: absolute; inset: 0; border-radius: 9999px;
+      background: #7EDC3A; animation: pulse-ring 2.2s cubic-bezier(.4,0,.6,1) infinite; z-index: -1;
+    }
+    @keyframes pulse-ring { 0% { transform: scale(.9); opacity: .7; } 80%, 100% { transform: scale(1.7); opacity: 0; } }
+
+    /* Botón volver arriba */
+    #to-top { opacity: 0; transform: translateY(12px); pointer-events: none; transition: all .4s ease; }
+    #to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+
+    /* ===== Logo como en un artboard de diseño ===== */
+    .artboard { position: relative; }
+    .ab { position: absolute; width: 22px; height: 22px; border-color: #214A91; border-style: solid; border-width: 0; opacity: 0; animation: abIn .6s cubic-bezier(.2,.7,.2,1) forwards; }
+    .ab-tl { top: -16px; left: -16px; border-top-width: 2px; border-left-width: 2px; animation-delay: .05s; }
+    .ab-tr { top: -16px; right: -16px; border-top-width: 2px; border-right-width: 2px; animation-delay: .15s; }
+    .ab-bl { bottom: -16px; left: -16px; border-bottom-width: 2px; border-left-width: 2px; animation-delay: .25s; }
+    .ab-br { bottom: -16px; right: -16px; border-bottom-width: 2px; border-right-width: 2px; animation-delay: .35s; }
+    @keyframes abIn { from { opacity: 0; } to { opacity: 1; } }
+    .ab-guide { position: absolute; background: rgba(33,74,145,.35); opacity: 1; animation: guideOut .8s ease 2.9s forwards; }
+    .ab-h { left: -36px; right: -36px; top: 50%; height: 1px; transform: scaleX(0); transform-origin: left; animation: growX 1s cubic-bezier(.6,0,.2,1) .3s forwards, guideOut .8s ease 2.9s forwards; }
+    .ab-v { top: -36px; bottom: -36px; left: 50%; width: 1px; transform: scaleY(0); transform-origin: top; animation: growY 1s cubic-bezier(.6,0,.2,1) .45s forwards, guideOut .8s ease 2.9s forwards; }
+    @keyframes growX { to { transform: scaleX(1); } }
+    @keyframes growY { to { transform: scaleY(1); } }
+    @keyframes guideOut { to { opacity: 0; } }
+    .scan { position: absolute; left: -6%; right: -6%; top: 0; height: 2px; opacity: 0;
+      background: linear-gradient(90deg, transparent, #7EDC3A 20%, #7EDC3A 80%, transparent);
+      box-shadow: 0 0 14px rgba(126,220,58,.9); animation: scanY 2.6s cubic-bezier(.6,0,.3,1) .6s forwards; }
+    @keyframes scanY {
+      0% { top: 0; opacity: 1; }
+      92% { top: 100%; opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+    .logo-draw { clip-path: inset(0 0 100% 0); animation: logoDraw 2.6s cubic-bezier(.6,0,.3,1) .6s forwards; }
+    @keyframes logoDraw { to { clip-path: inset(0 0 0 0); } }
+
+    /* ===== Logo naciendo: line art que se dibuja y se convierte en el logo ===== */
+    .naci-final, .naci-line {
+      -webkit-mask-image: linear-gradient(100deg, #000 0 45%, transparent 58%);
+              mask-image: linear-gradient(100deg, #000 0 45%, transparent 58%);
+      -webkit-mask-size: 260% 100%; mask-size: 260% 100%;
+      -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+      -webkit-mask-position: 100% 0; mask-position: 100% 0;
+    }
+    .naci-line { animation: nacLine 2.4s cubic-bezier(.5,0,.2,1) .2s forwards; }
+    .naci-final { opacity: 0; animation: nacFinal 1.8s cubic-bezier(.5,0,.2,1) 1.6s forwards; }
+    @keyframes nacLine {
+      0% { opacity: 1; -webkit-mask-position: 100% 0; mask-position: 100% 0; }
+      68% { opacity: 1; -webkit-mask-position: 0 0; mask-position: 0 0; }
+      100% { opacity: 0; -webkit-mask-position: 0 0; mask-position: 0 0; }
+    }
+    @keyframes nacFinal {
+      0% { opacity: 0; -webkit-mask-position: 100% 0; mask-position: 100% 0; }
+      12% { opacity: 1; }
+      100% { opacity: 1; -webkit-mask-position: 0 0; mask-position: 0 0; }
+    }
+
+    /* ===== Mapa de ubicación: la ruta se dibuja y el pin llega al destino ===== */
+    .route-draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: routeDraw 2.2s cubic-bezier(.6,0,.2,1) .4s forwards; }
+    @keyframes routeDraw { to { stroke-dashoffset: 0; } }
+    .pin { transform-box: fill-box; transform-origin: 50% 100%; animation: pinDrop 1s cubic-bezier(.3,1.5,.5,1) 2.2s both; }
+    @keyframes pinDrop { 0% { transform: translateY(-70px) scale(.5); opacity: 0; } 100% { transform: none; opacity: 1; } }
+    @keyframes pinBounce { 0%, 100% { transform: none; } 40% { transform: translateY(-12px); } 70% { transform: translateY(2px); } }
+    .ring { transform-box: fill-box; transform-origin: center; animation: ringPulse 2.2s ease-out infinite; }
+    @keyframes ringPulse { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(3.4); opacity: 0; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .route-draw { stroke-dashoffset: 0; }
+      .naci-line { display: none; }
+      .naci-final { opacity: 1; animation: none; -webkit-mask-image: none; mask-image: none; }
+      .pin { transform: none; opacity: 1; }
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal, .hero-in { opacity: 1; transform: none; }
+      .logo-enter { clip-path: none; }
+    }
+  </style>
+</head>
+
+<body class="font-sans text-ink antialiased overflow-x-hidden">
+
+  <div id="progress" aria-hidden="true"></div>
+
+  <!-- ============ BARRA SUPERIOR: REDES ============ -->
+  <div class="fixed top-0 inset-x-0 z-[60] h-9 bg-logo-blue text-white">
+    <div class="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4 text-xs font-semibold">
+      <div class="flex items-center gap-4">
+        <span class="text-white/80 tracking-wide">Encuéntranos en</span>
+        <span class="flex items-center gap-1">
+          <a href="https://www.facebook.com/share/19Tdqn9s7B/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-ico flex h-7 w-7 items-center justify-center rounded-full transition-colors hover:bg-logo-green hover:text-ink">
+            <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0022 12z"/></svg></a>
+          <a href="https://www.instagram.com/fisioimpactorehab" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-ico flex h-7 w-7 items-center justify-center rounded-full transition-colors hover:bg-logo-green hover:text-ink">
+            <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.tiktok.com/@fisio.impacto.reh" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-ico flex h-7 w-7 items-center justify-center rounded-full transition-colors hover:bg-logo-green hover:text-ink">
+            <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.6 6.7a4.8 4.8 0 01-3.6-2.3 4.8 4.8 0 01-.5-1.4h-3.3v13.2a2.6 2.6 0 11-2.6-2.6c.3 0 .5 0 .8.1V10a5.9 5.9 0 105 5.8V9.4a8 8 0 004.7 1.5V7.6a4.8 4.8 0 01-.5-.9z"/></svg></a>
+        </span>
+      </div>
+      <a href="https://maps.app.goo.gl/VqdepLPhdBjk9Fuc8?g_st=awb" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-1.5 text-white/90 hover:text-logo-green transition-colors">
+        <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Ver ubicación
+      </a>
+    </div>
+  </div>
+
+  <!-- ============ NAVEGACIÓN ============ -->
+  <header id="site-header" class="fixed top-9 inset-x-0 z-50 transition-all duration-500">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between" aria-label="Navegación principal">
+      <a href="#inicio" class="flex items-center h-12 md:h-14" aria-label="Fisio Impacto Rehabilitación - inicio">
+        <img data-asset="logo" alt="Fisio Impacto Rehabilitación" class="logo-img logo-enter h-full" style="--d:.1s" />
+      </a>
+
+      <ul class="hidden md:flex items-center gap-8 text-sm font-semibold text-ink/80">
+        <li><a href="#inicio" class="nav-link hover:text-logo-blue transition-colors">Inicio</a></li>
+        <li><a href="#servicios" class="nav-link hover:text-logo-blue transition-colors">Servicios</a></li>
+        <li><a href="#especialidades" class="nav-link hover:text-logo-blue transition-colors">Evaluación</a></li>
+        <li><a href="#ubicacion" class="nav-link hover:text-logo-blue transition-colors">Ubicación</a></li>
+        <li><a href="#contacto" class="nav-link hover:text-logo-blue transition-colors">Contacto</a></li>
+      </ul>
+
+      <div class="flex items-center gap-3">
+        <a data-wa="Hola, quiero agendar una cita en Fisio Impacto Rehabilitación." data-phone="527775688935"
+           class="btn magnetic hidden sm:inline-flex items-center gap-2 rounded-full bg-logo-blue px-5 py-2.5 text-sm font-bold text-white shadow-soft">
+          Agendar Cita
+        </a>
+        <button id="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menú"
+                class="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white text-ink shadow-card transition-transform active:scale-90">
+          <svg id="icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg id="icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="md:hidden hidden mx-4 mt-2 rounded-2xl bg-white/95 backdrop-blur-xl p-5 shadow-card">
+      <ul class="flex flex-col gap-1 font-semibold text-ink">
+        <li><a href="#inicio" class="nav-link block rounded-xl px-4 py-3 hover:bg-logo-blue/10 hover:text-logo-blue">Inicio</a></li>
+        <li><a href="#servicios" class="nav-link block rounded-xl px-4 py-3 hover:bg-logo-blue/10 hover:text-logo-blue">Servicios</a></li>
+        <li><a href="#especialidades" class="nav-link block rounded-xl px-4 py-3 hover:bg-logo-blue/10 hover:text-logo-blue">Evaluación</a></li>
+        <li><a href="#ubicacion" class="nav-link block rounded-xl px-4 py-3 hover:bg-logo-blue/10 hover:text-logo-blue">Ubicación</a></li>
+        <li><a href="#contacto" class="nav-link block rounded-xl px-4 py-3 hover:bg-logo-blue/10 hover:text-logo-blue">Contacto</a></li>
+      </ul>
+      <a data-wa="Hola, quiero agendar una cita en Fisio Impacto Rehabilitación." data-phone="527775688935"
+         class="btn mt-4 flex w-full items-center justify-center rounded-full bg-logo-blue px-5 py-3 font-bold text-white">
+        Agendar Cita
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section id="inicio" class="hero-bg relative overflow-hidden pt-32 md:pt-40 pb-24 md:pb-32">
+      <div class="absolute inset-0 dot-grid opacity-60 pointer-events-none [mask-image:radial-gradient(ellipse at center,black,transparent_75%)]"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <span class="particle" style="left:12%; top:24%; width:10px; height:10px; background:#7EDC3A; animation-delay:0s"></span>
+      <span class="particle" style="left:46%; top:16%; width:8px; height:8px; background:#214A91; animation-delay:-3s"></span>
+      <span class="particle" style="left:72%; top:30%; width:12px; height:12px; background:#F9B82F; animation-delay:-6s"></span>
+      <span class="particle" style="left:88%; top:70%; width:9px; height:9px; background:#7EDC3A; animation-delay:-2s"></span>
+      <span class="particle" style="left:30%; top:76%; width:7px; height:7px; background:#EE66B0; animation-delay:-5s"></span>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="text-center lg:text-left">
+          <span class="hero-in inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-4 py-1.5 text-sm font-semibold text-logo-blue shadow-card ring-1 ring-logo-green/40">
+            <span class="relative flex h-2.5 w-2.5"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-logo-green opacity-75"></span><span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-logo-green"></span></span>
+            Fisioterapia integral especializada
+          </span>
+
+          <h1 class="hero-in mt-6 text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.08] tracking-tight text-ink" style="animation-delay:.12s">
+            Recupera tu movimiento y
+            <span class="text-logo-blue block sm:inline">
+              <span>potencia tu rendimiento</span>
+            </span>
+            <span class="block mt-2">vuelve a vivir sin dolor.</span>
+          </h1>
+
+          <p class="hero-in mt-6 text-base sm:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0" style="animation-delay:.24s">
+            Tratamientos personalizados para la recuperación física, la prevención de lesiones y el bienestar de toda la familia, con un plan diseñado para ti.
+          </p>
+
+          <div class="hero-in mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" style="animation-delay:.36s">
+            <a data-wa="Hola, quiero agendar una cita de valoración en Fisio Impacto Rehabilitación." data-phone="527775688935"
+               class="btn magnetic inline-flex items-center justify-center gap-2 rounded-full bg-logo-green px-7 py-4 font-bold text-ink shadow-glow">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4.1-4.8-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.8 2 .8 2.1 0 .1.1.3 0 .5-.1.2-.1.3-.3.5l-.5.6c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.8.9 2.1 1 .3.2.5.2.6.4.1.2.1 1-.1 1.6z"/></svg>
+              Agendar por WhatsApp
+            </a>
+            <a data-wa="Hola, quiero información sobre sus servicios de fisioterapia." data-phone="527774683781"
+               class="btn magnetic inline-flex items-center justify-center gap-2 rounded-full border-2 border-logo-blue bg-white/70 backdrop-blur px-7 py-4 font-bold text-logo-blue hover:bg-logo-blue hover:text-white">
+              Segundo contacto
+            </a>
+          </div>
+
+          <ul class="hero-in mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto lg:mx-0" style="animation-delay:.5s">
+            <li class="tilt group relative flex items-center gap-3 rounded-2xl bg-white/80 backdrop-blur p-4 shadow-card hover:-translate-y-1 hover:shadow-soft">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-logo-blue/10 text-logo-blue transition-transform group-hover:scale-110">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.6 4.4a2 2 0 01-2.5 1.8 2 2 0 00-2.7 2.7 2 2 0 01-1.8 2.5 2 2 0 01-1.6-.7 2 2 0 00-3.2 0 2 2 0 01-1.6.7 2 2 0 01-1.8-2.5 2 2 0 00-2.7-2.7 2 2 0 01-2.5-1.8 2 2 0 010-3.2 2 2 0 001.8-2.7 2 2 0 012.5-2.5 2 2 0 002.7-1.8A2 2 0 0110 2a2 2 0 011.6.7 2 2 0 003.2 0 2 2 0 011.6-.7 2 2 0 011.8 2.5 2 2 0 002.7 1.8 2 2 0 012.5 2.5 2 2 0 001.8 2.7 2 2 0 010 3.2z"/></svg>
+              </span>
+              <span class="text-sm font-bold leading-tight">Especialistas Certificados</span>
+            </li>
+            <li class="tilt group relative flex items-center gap-3 rounded-2xl bg-white/80 backdrop-blur p-4 shadow-card hover:-translate-y-1 hover:shadow-soft">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-logo-green/15 transition-transform group-hover:scale-110" style="color:#3a7d1c">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-5-3.9M12 12a4 4 0 100-8 4 4 0 000 8zM5 20h5v-2a4 4 0 00-3-3.9M3 8a3 3 0 106 0"/></svg>
+              </span>
+              <span class="text-sm font-bold leading-tight">Atención Personalizada</span>
+            </li>
+            <li class="tilt group relative flex items-center gap-3 rounded-2xl bg-white/80 backdrop-blur p-4 shadow-card hover:-translate-y-1 hover:shadow-soft">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-logo-blue/10 text-logo-blue transition-transform group-hover:scale-110">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+              </span>
+              <span class="text-sm font-bold leading-tight">Evaluación Integral</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Logotipo oficial, animado -->
+        <div class="reveal relative mx-auto w-full max-w-md">
+          <div class="relative mx-auto flex items-center justify-center p-8 md:p-12" style="perspective: 900px;">
+                        <div id="hero-logo" class="naci relative w-full">
+              <img data-asset="logo" alt="Logotipo Fisio Impacto Rehabilitación" class="logo-img naci-final block w-full h-auto" />
+              <img src="data:image/png;base64,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" alt="" aria-hidden="true" class="naci-line absolute left-0 top-0 w-full h-auto" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <svg class="wave absolute bottom-0 left-0 text-slate-50" viewBox="0 0 1440 60" preserveAspectRatio="none" fill="currentColor" aria-hidden="true">
+        <path d="M0,32 C240,80 480,0 720,32 C960,64 1200,8 1440,40 L1440,60 L0,60 Z"/>
+      </svg>
+    </section>
+
+    <!-- ============ SERVICIOS ============ -->
+    <section id="servicios" class="relative py-20 md:py-28 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal max-w-2xl mx-auto text-center">
+          <p class="text-sm font-bold uppercase tracking-widest" style="color:#3a7d1c">Nuestros servicios</p>
+          <h2 class="mt-3 text-3xl md:text-4xl font-black tracking-tight">Un tratamiento para cada etapa de tu vida</h2>
+          <p class="mt-4 text-slate-600">Selecciona una especialidad para conocer más y agenda tu cita directamente.</p>
+        </div>
+
+        <div class="reveal mt-10 flex flex-wrap justify-center gap-2" role="group" aria-label="Filtrar servicios">
+          <button type="button" class="filter-btn is-active rounded-full px-5 py-2 text-sm font-semibold" data-filter="all">Todos</button>
+          <button type="button" class="filter-btn rounded-full px-5 py-2 text-sm font-semibold" data-filter="deportiva">Deportiva</button>
+          <button type="button" class="filter-btn rounded-full px-5 py-2 text-sm font-semibold" data-filter="ortopedica">Ortopédica</button>
+          <button type="button" class="filter-btn rounded-full px-5 py-2 text-sm font-semibold" data-filter="pediatrica">Pediátrica</button>
+          <button type="button" class="filter-btn rounded-full px-5 py-2 text-sm font-semibold" data-filter="adulto">Adulto Mayor</button>
+        </div>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="service-card tilt reveal flex flex-col rounded-3xl p-7 shadow-card hover:shadow-soft" style="--accent:#E64A0B; --on:#fff; --rd:0ms" data-category="deportiva">
+            <div class="shine"></div>
+            <span class="icon-chip flex h-14 w-14 items-center justify-center rounded-2xl text-white">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </span>
+            <h3 class="mt-5 text-xl font-bold">Fisioterapia Deportiva</h3>
+            <p class="mt-2 text-sm text-slate-600">Mejora tu rendimiento, previene lesiones y acelera tu regreso a la actividad física.</p>
+            <div class="service-more hidden mt-4 text-sm text-slate-600 space-y-2">
+              <p>• Valoración biomecánica</p><p>• Prevención de lesiones</p><p>• Readaptación al deporte</p>
+            </div>
+            <button type="button" class="toggle-more accent-text mt-4 self-start text-sm font-bold hover:underline" aria-expanded="false">Ver detalles +</button>
+            <a data-wa="Hola, quiero agendar una cita de Fisioterapia Deportiva." class="btn mt-auto pt-6 block">
+              <span class="flex w-full items-center justify-center rounded-full py-3 text-sm font-bold" style="background:var(--accent);color:var(--on)">Agendar cita</span>
+            </a>
+          </article>
+
+          <article class="service-card tilt reveal flex flex-col rounded-3xl p-7 shadow-card hover:shadow-soft" style="--accent:#214A91; --on:#fff; --rd:120ms" data-category="ortopedica">
+            <div class="shine"></div>
+            <span class="icon-chip flex h-14 w-14 items-center justify-center rounded-2xl text-white">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+            </span>
+            <h3 class="mt-5 text-xl font-bold">Rehabilitación Ortopédica y Postoperatoria</h3>
+            <p class="mt-2 text-sm text-slate-600">Recuperación de fracturas, cirugías y lesiones articulares con un plan progresivo y seguro.</p>
+            <div class="service-more hidden mt-4 text-sm text-slate-600 space-y-2">
+              <p>• Rehabilitación postquirúrgica</p><p>• Movilidad y fuerza articular</p><p>• Seguimiento por etapas</p>
+            </div>
+            <button type="button" class="toggle-more accent-text mt-4 self-start text-sm font-bold hover:underline" aria-expanded="false">Ver detalles +</button>
+            <a data-wa="Hola, quiero agendar una cita de Rehabilitación Ortopédica o Postoperatoria." class="btn mt-auto pt-6 block">
+              <span class="flex w-full items-center justify-center rounded-full py-3 text-sm font-bold" style="background:var(--accent);color:var(--on)">Agendar cita</span>
+            </a>
+          </article>
+
+          <article class="service-card tilt reveal flex flex-col rounded-3xl p-7 shadow-card hover:shadow-soft" style="--accent:#EE66B0; --on:#fff; --rd:240ms" data-category="pediatrica">
+            <div class="shine"></div>
+            <span class="icon-chip flex h-14 w-14 items-center justify-center rounded-2xl text-white">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+            <h3 class="mt-5 text-xl font-bold">Fisioterapia Pediátrica</h3>
+            <p class="mt-2 text-sm text-slate-600">Desarrollo motor, coordinación y corrección postural con dinámicas adaptadas a cada niño.</p>
+            <div class="service-more hidden mt-4 text-sm text-slate-600 space-y-2">
+              <p>• Desarrollo motor</p><p>• Corrección postural infantil</p><p>• Terapia lúdica y familiar</p>
+            </div>
+            <button type="button" class="toggle-more accent-text mt-4 self-start text-sm font-bold hover:underline" aria-expanded="false">Ver detalles +</button>
+            <a data-wa="Hola, quiero agendar una cita de Fisioterapia Pediátrica." class="btn mt-auto pt-6 block">
+              <span class="flex w-full items-center justify-center rounded-full py-3 text-sm font-bold" style="background:var(--accent);color:var(--on)">Agendar cita</span>
+            </a>
+          </article>
+
+          <article class="service-card tilt reveal flex flex-col rounded-3xl p-7 shadow-card hover:shadow-soft" style="--accent:#F9B82F; --on:#1e293b; --rd:360ms" data-category="adulto">
+            <div class="shine"></div>
+            <span class="icon-chip flex h-14 w-14 items-center justify-center rounded-2xl text-white">
+              <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </span>
+            <h3 class="mt-5 text-xl font-bold">Adulto Mayor y Terapia del Dolor</h3>
+            <p class="mt-2 text-sm text-slate-600">Alivio del dolor crónico, equilibrio y autonomía para vivir con mayor calidad de vida.</p>
+            <div class="service-more hidden mt-4 text-sm text-slate-600 space-y-2">
+              <p>• Manejo del dolor crónico</p><p>• Prevención de caídas</p><p>• Movilidad funcional</p>
+            </div>
+            <button type="button" class="toggle-more mt-4 self-start text-sm font-bold text-ink hover:underline" aria-expanded="false">Ver detalles +</button>
+            <a data-wa="Hola, quiero agendar una cita de Adulto Mayor o Terapia del Dolor." class="btn mt-auto pt-6 block">
+              <span class="flex w-full items-center justify-center rounded-full py-3 text-sm font-bold" style="background:var(--accent);color:var(--on)">Agendar cita</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EVALUACIÓN ============ -->
+    <section id="especialidades" class="relative py-20 md:py-28 bg-white overflow-hidden">
+      <div class="blob blob-3 !opacity-30" style="left:-100px; top:auto; bottom:-100px;"></div>
+      <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal text-center max-w-2xl mx-auto">
+          <p class="text-sm font-bold uppercase tracking-widest text-logo-blue">Evaluación rápida</p>
+          <h2 class="mt-3 text-3xl md:text-4xl font-black tracking-tight">¿Dónde sientes la molestia?</h2>
+          <p class="mt-4 text-slate-600">Elige tu zona, indica la intensidad del dolor y recibe una orientación inicial.</p>
+        </div>
+
+        <div class="reveal tilt mt-12 rounded-3xl bg-white p-6 md:p-10 shadow-soft ring-1 ring-slate-100">
+          <p class="text-sm font-bold text-ink">1. Selecciona tu zona de molestia</p>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3" id="zone-options" role="radiogroup" aria-label="Zona de molestia">
+            <button type="button" class="zone-btn rounded-2xl border-2 border-slate-200 p-4 text-center font-semibold hover:border-logo-blue" data-zone="espalda" role="radio" aria-checked="false"><span class="block text-2xl mb-1">🦴</span>Espalda</button>
+            <button type="button" class="zone-btn rounded-2xl border-2 border-slate-200 p-4 text-center font-semibold hover:border-logo-blue" data-zone="rodilla" role="radio" aria-checked="false"><span class="block text-2xl mb-1">🦵</span>Rodilla</button>
+            <button type="button" class="zone-btn rounded-2xl border-2 border-slate-200 p-4 text-center font-semibold hover:border-logo-blue" data-zone="hombro" role="radio" aria-checked="false"><span class="block text-2xl mb-1">💪</span>Hombro</button>
+            <button type="button" class="zone-btn rounded-2xl border-2 border-slate-200 p-4 text-center font-semibold hover:border-logo-blue" data-zone="deportiva" role="radio" aria-checked="false"><span class="block text-2xl mb-1">⚽</span>Lesión Deportiva</button>
+          </div>
+
+          <div class="mt-8">
+            <label for="pain-range" class="text-sm font-bold text-ink flex justify-between">
+              <span>2. Intensidad del dolor</span>
+              <span class="text-logo-blue"><span id="pain-value">5</span> / 10</span>
+            </label>
+            <input id="pain-range" type="range" min="1" max="10" value="5" class="mt-4 w-full" />
+            <div class="mt-1 flex justify-between text-xs text-slate-500"><span>Leve</span><span>Moderado</span><span>Intenso</span></div>
+          </div>
+
+          <div id="symptom-result" class="mt-8 hidden rounded-2xl border border-logo-green/40 bg-gradient-to-br from-logo-green/10 to-logo-blue/5 p-6" aria-live="polite"></div>
+          <p id="symptom-hint" class="mt-6 text-center text-sm text-slate-500">Selecciona una zona para ver tu recomendación.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ UBICACIÓN ============ -->
+    <section id="ubicacion" class="relative py-20 md:py-28 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <p class="text-sm font-bold uppercase tracking-widest" style="color:#3a7d1c">Ubicación y accesibilidad</p>
+          <h2 class="mt-3 text-3xl md:text-4xl font-black tracking-tight">Llega fácil y sin complicaciones</h2>
+          <p class="mt-4 text-slate-600">Te esperamos en un espacio cómodo y accesible. Abre el mapa para trazar tu ruta desde tu ubicación actual.</p>
+
+          <ul class="mt-8 space-y-5">
+            <li class="flex gap-4 group">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-logo-blue/10 text-logo-blue transition-transform group-hover:scale-110">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </span>
+              <div><p class="font-bold">Dirección</p><p class="text-sm text-slate-600">Encuéntranos en Google Maps con el botón de abajo.</p></div>
+            </li>
+            <li class="flex gap-4 group">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-logo-green/15 transition-transform group-hover:scale-110" style="color:#3a7d1c">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </span>
+              <div><p class="font-bold">Correo electrónico</p><a href="mailto:fisioimpactorehab@gmail.com" class="text-sm text-logo-blue font-semibold hover:underline">fisioimpactorehab@gmail.com</a></div>
+            </li>
+            <li class="flex gap-4 group">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-logo-blue/10 text-logo-blue transition-transform group-hover:scale-110">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z"/></svg>
+              </span>
+              <div><p class="font-bold">Citas</p><p class="text-sm text-slate-600">Agenda con anticipación por WhatsApp para asegurar tu horario.</p></div>
+            </li>
+          </ul>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.app.goo.gl/VqdepLPhdBjk9Fuc8?g_st=awb" target="_blank" rel="noopener noreferrer"
+               class="btn magnetic inline-flex items-center justify-center gap-2 rounded-full bg-logo-blue px-6 py-3.5 font-bold text-white shadow-soft">
+              Cómo llegar en Google Maps
+            </a>
+            <a href="mailto:fisioimpactorehab@gmail.com" class="btn inline-flex items-center justify-center gap-2 rounded-full border-2 border-slate-200 bg-white px-6 py-3.5 font-bold text-ink hover:border-logo-blue hover:text-logo-blue">
+              Enviar correo
+            </a>
+          </div>
+        </div>
+
+        <a href="https://maps.app.goo.gl/VqdepLPhdBjk9Fuc8?g_st=awb" target="_blank" rel="noopener noreferrer"
+           aria-label="Abrir la ubicación de Fisio Impacto Rehabilitación en Google Maps"
+           class="reveal group relative block overflow-hidden rounded-[2rem] shadow-soft ring-1 ring-slate-200 min-h-[380px] bg-[#eef4ea]">
+          <svg class="absolute inset-0 h-full w-full" viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="320" fill="#eef4ea"/>
+            <rect x="18" y="200" width="120" height="100" rx="18" fill="#cfe9bd"/>
+            <rect x="262" y="16" width="120" height="78" rx="18" fill="#cfe9bd"/>
+            <g fill="#ffffff">
+              <rect x="20" y="20" width="110" height="70" rx="10"/>
+              <rect x="160" y="20" width="84" height="70" rx="10"/>
+              <rect x="20" y="130" width="110" height="52" rx="10"/>
+              <rect x="160" y="130" width="84" height="52" rx="10"/>
+              <rect x="262" y="110" width="120" height="70" rx="10"/>
+              <rect x="160" y="220" width="84" height="80" rx="10"/>
+            </g>
+            <g stroke="#ffffff" stroke-width="12" stroke-linecap="round" fill="none">
+              <path d="M-10 118 H410"/>
+              <path d="M150 -10 V330"/>
+              <path d="M-10 262 H410"/>
+              <path d="M250 -10 Q300 80 410 96"/>
+            </g>
+            <path d="M-10 302 C 80 282, 140 312, 220 294 S 360 272, 410 288" stroke="#bfe0f3" stroke-width="12" fill="none" stroke-linecap="round"/>
+            <path d="M52 262 C 96 262, 110 226, 150 218 S 230 150, 262 140 S 318 96, 336 86" fill="none" stroke="#214A91" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round" opacity=".5"/>
+            <path class="route-draw" pathLength="1" d="M52 262 C 96 262, 110 226, 150 218 S 230 150, 262 140 S 318 96, 336 86" fill="none" stroke="#7EDC3A" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="52" cy="262" r="9" fill="#214A91" stroke="#ffffff" stroke-width="3"/>
+            <circle class="ring" cx="52" cy="262" r="9" fill="none" stroke="#214A91" stroke-width="2"/>
+            <ellipse cx="336" cy="88" rx="11" ry="4" fill="#1e293b" opacity=".18"/>
+            <g transform="translate(336 88)">
+              <g class="pin">
+                <path d="M0 0 C -4 -14 -18 -22 -18 -38 A18 18 0 1 1 18 -38 C 18 -22 4 -14 0 0 Z" fill="#214A91" stroke="#ffffff" stroke-width="2"/>
+                <circle cx="0" cy="-38" r="7" fill="#7EDC3A"/>
+              </g>
+            </g>
+          </svg>
+          <span class="absolute left-4 top-4 md:left-6 md:top-6 rounded-full bg-logo-green px-3 py-1 text-xs font-bold text-ink shadow">Tu destino</span>
+          <span class="absolute inset-x-4 bottom-4 md:inset-x-6 md:bottom-6 flex items-center gap-4 rounded-2xl bg-white/95 backdrop-blur p-4 shadow-card">
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-logo-blue text-white transition-transform duration-500 group-hover:scale-110">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </span>
+            <span class="min-w-0">
+              <span class="block font-black text-ink">Fisio Impacto Rehabilitación</span>
+              <span class="block text-sm text-slate-600 transition-colors group-hover:text-logo-blue">Abrir ruta en Google Maps →</span>
+            </span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIOS ============ -->
+    <section id="testimonios" class="relative py-20 md:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="reveal text-center max-w-2xl mx-auto">
+          <p class="text-sm font-bold uppercase tracking-widest" style="color:#3a7d1c">Testimonios</p>
+          <h2 class="mt-3 text-3xl md:text-4xl font-black tracking-tight">Historias reales de recuperación</h2>
+        </div>
+
+        <!-- NOTA: reemplazar por testimonios reales y autorizados por los pacientes. -->
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <figure class="reveal tilt relative rounded-3xl bg-white p-8 shadow-card ring-1 ring-slate-100 hover:shadow-soft" style="--rd:0ms">
+            <div class="shine"></div>
+            <div class="text-logo-gold text-lg tracking-widest" aria-label="5 estrellas">★★★★★</div>
+            <blockquote class="mt-5 text-slate-700 leading-relaxed">"Llevaba meses con dolor de rodilla al subir escaleras. Con su plan personalizado volví a caminar sin molestias en pocas semanas."</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-logo-blue font-bold text-white">M</span>
+              <span><span class="block font-bold">María L.</span><span class="text-sm text-slate-500">Rehabilitación de rodilla</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="reveal tilt relative rounded-3xl bg-white p-8 shadow-card ring-1 ring-slate-100 hover:shadow-soft" style="--rd:150ms">
+            <div class="shine"></div>
+            <div class="text-logo-gold text-lg tracking-widest" aria-label="5 estrellas">★★★★★</div>
+            <blockquote class="mt-5 text-slate-700 leading-relaxed">"Después de mi cirugía de hombro pensé que no volvería a entrenar. El seguimiento fue impecable y hoy regreso al gimnasio."</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-logo-green font-bold text-ink">C</span>
+              <span><span class="block font-bold">Carlos R.</span><span class="text-sm text-slate-500">Postoperatorio de hombro</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="reveal tilt relative rounded-3xl bg-white p-8 shadow-card ring-1 ring-slate-100 hover:shadow-soft" style="--rd:300ms">
+            <div class="shine"></div>
+            <div class="text-logo-gold text-lg tracking-widest" aria-label="5 estrellas">★★★★★</div>
+            <blockquote class="mt-5 text-slate-700 leading-relaxed">"Mi hijo llegó con problemas de coordinación. Las sesiones fueron divertidas para él y hoy progresa muy bien en la escuela."</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <span class="flex h-11 w-11 items-center justify-center rounded-full bg-logo-pink font-bold text-white">A</span>
+              <span><span class="block font-bold">Ana G.</span><span class="text-sm text-slate-500">Fisioterapia pediátrica</span></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="py-16 bg-white">
+      <div class="reveal tilt max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="relative overflow-hidden rounded-[2rem] p-10 md:p-14 text-center text-white shadow-soft"
+             style="background: linear-gradient(120deg, #214A91, #2f6bbf 45%, #5fb83b);">
+          <div class="absolute inset-0 dot-grid opacity-20"></div>
+          <div class="absolute -top-10 -right-10 h-48 w-48 rounded-full bg-logo-green/40 blur-3xl"></div>
+          <div class="relative">
+            <h2 class="text-3xl md:text-4xl font-black">Tu recuperación empieza hoy</h2>
+            <p class="mt-4 text-white/90 max-w-xl mx-auto">Agenda tu valoración inicial y da el primer paso hacia tu mejor movimiento.</p>
+            <a data-wa="Hola, quiero agendar mi valoración inicial en Fisio Impacto Rehabilitación." data-phone="527775688935"
+               class="btn magnetic mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 font-bold text-logo-blue shadow-lg">
+              Agendar mi valoración
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer id="contacto" class="relative bg-white border-t border-slate-200 text-slate-600 overflow-hidden">
+    <div class="absolute inset-0 dot-grid opacity-40 pointer-events-none"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid gap-10 md:grid-cols-3">
+      <div>
+        <a href="#inicio" class="inline-flex h-16 items-center" aria-label="Fisio Impacto Rehabilitación - inicio">
+          <img data-asset="logo" alt="Fisio Impacto Rehabilitación" class="logo-img h-full w-auto" />
+        </a>
+        <p class="mt-5 text-sm leading-relaxed">Fisioterapia integral para recuperar tu movimiento, potenciar tu rendimiento y cuidar tu bienestar.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="https://www.facebook.com/share/19Tdqn9s7B/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+             class="btn flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 hover:-translate-y-1 hover:bg-logo-blue hover:text-white">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0022 12z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/fisioimpactorehab" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+             class="btn flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 hover:-translate-y-1 hover:bg-logo-pink hover:text-white">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@fisio.impacto.reh" target="_blank" rel="noopener noreferrer" aria-label="TikTok"
+             class="btn flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 hover:-translate-y-1 hover:bg-ink hover:text-white">
+            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.6 6.7a4.8 4.8 0 01-3.6-2.3 4.8 4.8 0 01-.5-1.4h-3.3v13.2a2.6 2.6 0 11-2.6-2.6c.3 0 .5 0 .8.1V10a5.9 5.9 0 105 5.8V9.4a8 8 0 004.7 1.5V7.6a4.8 4.8 0 01-.5-.9z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-ink">Contacto</h3>
+        <ul class="mt-5 space-y-3 text-sm">
+          <li><a data-wa="Hola, quiero agendar una cita en Fisio Impacto Rehabilitación." data-phone="527775688935" class="hover:text-logo-blue transition-colors">WhatsApp: 777 568 8935</a></li>
+          <li><a data-wa="Hola, quiero agendar una cita en Fisio Impacto Rehabilitación." data-phone="527774683781" class="hover:text-logo-blue transition-colors">WhatsApp: 777 468 3781</a></li>
+          <li><a href="mailto:fisioimpactorehab@gmail.com" class="hover:text-logo-blue transition-colors">fisioimpactorehab@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-ink">Navegación</h3>
+        <ul class="mt-5 grid grid-cols-2 gap-3 text-sm">
+          <li><a href="#inicio" class="hover:text-logo-blue transition-colors">Inicio</a></li>
+          <li><a href="#servicios" class="hover:text-logo-blue transition-colors">Servicios</a></li>
+          <li><a href="#especialidades" class="hover:text-logo-blue transition-colors">Evaluación</a></li>
+          <li><a href="#ubicacion" class="hover:text-logo-blue transition-colors">Ubicación</a></li>
+          <li><a href="#testimonios" class="hover:text-logo-blue transition-colors">Testimonios</a></li>
+          <li><a href="https://maps.app.goo.gl/VqdepLPhdBjk9Fuc8?g_st=awb" target="_blank" rel="noopener noreferrer" class="hover:text-logo-blue transition-colors">Google Maps</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="relative border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+        <p>&copy; <span id="year">2026</span> Fisio Impacto Rehabilitación. Todos los derechos reservados.</p>
+        <p>Diseñado para tu recuperación.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a data-wa="Hola, quiero agendar una cita en Fisio Impacto Rehabilitación." data-phone="527775688935" aria-label="Escribir por WhatsApp"
+     class="magnetic fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-logo-green text-ink shadow-glow transition-transform hover:scale-110">
+    <span class="pulse-ring absolute inset-0 rounded-full"></span>
+    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4.1-4.8-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.8 2 .8 2.1 0 .1.1.3 0 .5-.1.2-.1.3-.3.5l-.5.6c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.2 1.4 2.5 1.5.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 1.8.9 2.1 1 .3.2.5.2.6.4.1.2.1 1-.1 1.6z"/></svg>
+  </a>
+
+  <!-- Volver arriba -->
+  <button id="to-top" type="button" aria-label="Volver arriba"
+          class="fixed bottom-5 left-5 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-white text-logo-blue shadow-card hover:-translate-y-1">
+    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+  </button>
+
+  <script>
+    /* Imágenes oficiales del logotipo (archivos originales, fondo transparente) */
+    var ASSETS = {
+      'logo': 'data:image/png;base64,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'
+    };
+
+    (function () {
+      'use strict';
+
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var finePointer = window.matchMedia('(pointer: fine)').matches;
+
+      /* ---------- Asignar imágenes oficiales ---------- */
+      document.querySelectorAll('[data-asset]').forEach(function (img) {
+        img.src = ASSETS[img.dataset.asset];
+      });
+
+      /* ---------- WhatsApp: todos los botones de contacto ---------- */
+      var WHATSAPP = { principal: '527775688935', secundario: '527774683781' };
+      function waUrl(phone, message) {
+        return 'https://wa.me/' + phone + '?text=' + encodeURIComponent(message);
+      }
+      document.querySelectorAll('[data-wa]').forEach(function (el) {
+        el.setAttribute('href', waUrl(el.dataset.phone || WHATSAPP.principal, el.dataset.wa));
+        el.setAttribute('target', '_blank');
+        el.setAttribute('rel', 'noopener noreferrer');
+      });
+
+      /* ---------- Año automático ---------- */
+      var yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      /* ---------- Efecto ripple en botones ---------- */
+      if (!prefersReduced) {
+        document.querySelectorAll('.btn').forEach(function (btn) {
+          btn.addEventListener('click', function (e) {
+            var r = btn.getBoundingClientRect();
+            var size = Math.max(r.width, r.height);
+            var span = document.createElement('span');
+            span.className = 'ripple';
+            span.style.width = span.style.height = size + 'px';
+            span.style.left = (e.clientX - r.left - size / 2) + 'px';
+            span.style.top = (e.clientY - r.top - size / 2) + 'px';
+            btn.appendChild(span);
+            setTimeout(function () { span.remove(); }, 700);
+          });
+        });
+      }
+
+      /* ---------- Menú hamburguesa ---------- */
+      var menuBtn = document.getElementById('menu-toggle');
+      var mobileMenu = document.getElementById('mobile-menu');
+      var iconOpen = document.getElementById('icon-open');
+      var iconClose = document.getElementById('icon-close');
+      function setMenu(open) {
+        mobileMenu.classList.toggle('hidden', !open);
+        iconOpen.classList.toggle('hidden', open);
+        iconClose.classList.toggle('hidden', !open);
+        menuBtn.setAttribute('aria-expanded', String(open));
+        menuBtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      }
+      menuBtn.addEventListener('click', function () {
+        setMenu(mobileMenu.classList.contains('hidden'));
+      });
+      mobileMenu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { setMenu(false); });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setMenu(false);
+      });
+
+      /* ---------- Header de vidrio, barra de progreso y botón volver arriba ---------- */
+      var header = document.getElementById('site-header');
+      var progress = document.getElementById('progress');
+      var toTop = document.getElementById('to-top');
+      function onScroll() {
+        var y = window.scrollY;
+        header.classList.toggle('header-scrolled', y > 20);
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+        toTop.classList.toggle('show', y > 600);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      toTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+      });
+
+      /* ---------- Enlace activo según sección ---------- */
+      var navLinks = document.querySelectorAll('.nav-link');
+      if ('IntersectionObserver' in window) {
+        var navObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            navLinks.forEach(function (link) {
+              link.classList.toggle('is-active', link.getAttribute('href') === '#' + entry.target.id);
+            });
+          });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        ['inicio', 'servicios', 'especialidades', 'ubicacion', 'contacto'].forEach(function (id) {
+          var s = document.getElementById(id);
+          if (s) navObs.observe(s);
+        });
+      }
+
+      /* ---------- Revelado al hacer scroll ---------- */
+      var revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && !prefersReduced) {
+        var revealObs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealEls.forEach(function (el) { revealObs.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+      /* ---------- Palabra rotativa del titular ---------- */
+      var rotator = null;
+      var words = ['potencia tu rendimiento', 'recuperar tu independencia', 'cuidar tu bienestar', 'volver a moverte'];
+      if (rotator && !prefersReduced) {
+        var idx = 0;
+        setInterval(function () {
+          var current = rotator.querySelector('span');
+          current.classList.remove('in');
+          current.classList.add('out');
+          setTimeout(function () {
+            idx = (idx + 1) % words.length;
+            current.textContent = words[idx];
+            current.classList.remove('out');
+            current.classList.add('in');
+          }, 450);
+        }, 3200);
+      }
+
+      /* ---------- Logo del hero: sigue el cursor en 3D ---------- */
+      var heroLogo = null;
+      if (finePointer && !prefersReduced && heroLogo) {
+        var wrap = heroLogo.parentElement;
+        wrap.addEventListener('mousemove', function (e) {
+          var r = wrap.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width - 0.5;
+          var y = (e.clientY - r.top) / r.height - 0.5;
+          heroLogo.style.transform = 'rotateY(' + (x * 14) + 'deg) rotateX(' + (-y * 14) + 'deg)';
+        });
+        wrap.addEventListener('mouseleave', function () { heroLogo.style.transform = ''; });
+      }
+
+      /* ---------- Tarjetas 3D y botones magnéticos (solo con mouse) ---------- */
+      if (finePointer && !prefersReduced) {
+        document.querySelectorAll('.tilt').forEach(function (card) {
+          card.addEventListener('mousemove', function (e) {
+            var r = card.getBoundingClientRect();
+            var x = e.clientX - r.left, y = e.clientY - r.top;
+            var rx = ((y / r.height) - 0.5) * -8;
+            var ry = ((x / r.width) - 0.5) * 8;
+            card.style.transform = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(-4px)';
+            card.style.setProperty('--sx', x + 'px');
+            card.style.setProperty('--sy', y + 'px');
+          });
+          card.addEventListener('mouseleave', function () { card.style.transform = ''; });
+        });
+        document.querySelectorAll('.magnetic').forEach(function (btn) {
+          btn.addEventListener('mousemove', function (e) {
+            var r = btn.getBoundingClientRect();
+            var x = (e.clientX - r.left - r.width / 2) * 0.2;
+            var y = (e.clientY - r.top - r.height / 2) * 0.25;
+            btn.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+          });
+          btn.addEventListener('mouseleave', function () { btn.style.transform = ''; });
+        });
+      }
+
+      /* ---------- Filtro de servicios ---------- */
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      var serviceCards = document.querySelectorAll('.service-card');
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var filter = btn.dataset.filter;
+          filterBtns.forEach(function (b) {
+            var active = b === btn;
+            b.classList.toggle('is-active', active);
+            b.setAttribute('aria-pressed', String(active));
+          });
+          serviceCards.forEach(function (card) {
+            var show = filter === 'all' || card.dataset.category === filter;
+            card.style.display = show ? '' : 'none';
+          });
+        });
+      });
+
+      /* ---------- Ver detalles de cada servicio ---------- */
+      document.querySelectorAll('.toggle-more').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var detail = btn.parentElement.querySelector('.service-more');
+          var open = detail.classList.toggle('hidden') === false;
+          btn.setAttribute('aria-expanded', String(open));
+          btn.textContent = open ? 'Ocultar detalles −' : 'Ver detalles +';
+        });
+      });
+
+      /* ---------- Evaluación interactiva ---------- */
+      var zoneBtns = document.querySelectorAll('.zone-btn');
+      var painRange = document.getElementById('pain-range');
+      var painValue = document.getElementById('pain-value');
+      var resultBox = document.getElementById('symptom-result');
+      var hint = document.getElementById('symptom-hint');
+      var selectedZone = null;
+
+      var RECOMMENDATIONS = {
+        espalda: {
+          title: 'Columna y espalda',
+          treatment: 'Terapia manual, ejercicios de estabilización del core y educación postural.',
+          focus: 'Aliviar la tensión y recuperar el control del movimiento.'
+        },
+        rodilla: {
+          title: 'Rodilla',
+          treatment: 'Fortalecimiento progresivo, control de carga y trabajo de movilidad articular.',
+          focus: 'Recuperar la fuerza y la estabilidad para caminar y subir escaleras sin dolor.'
+        },
+        hombro: {
+          title: 'Hombro',
+          treatment: 'Movilidad articular guiada, fortalecimiento del manguito rotador y terapia manual.',
+          focus: 'Devolver el rango de movimiento y la función del brazo en tus actividades diarias.'
+        },
+        deportiva: {
+          title: 'Lesión deportiva',
+          treatment: 'Readaptación al deporte por fases, pliometría y prevención de recaídas.',
+          focus: 'Volver a tu actividad con seguridad y mejor rendimiento que antes.'
+        }
+      };
+
+      function renderResult() {
+        if (!selectedZone) return;
+        var rec = RECOMMENDATIONS[selectedZone];
+        var pain = Number(painRange.value);
+        var urgency = pain >= 8
+          ? 'Tu nivel de dolor es alto: te recomendamos agendar una valoración presencial lo antes posible.'
+          : pain >= 5
+            ? 'Un dolor moderado merece una evaluación para evitar que avance.'
+            : 'Una valoración temprana ayuda a prevenir que la molestia se vuelva crónica.';
+        var message = 'Hola, tengo molestia en ' + rec.title.toLowerCase() +
+          ' con intensidad de dolor ' + pain + '/10. Me gustaría agendar una valoración.';
+
+        resultBox.innerHTML =
+          '<p class="text-xs font-bold uppercase tracking-widest" style="color:#3a7d1c">Recomendación para ti</p>' +
+          '<h3 class="mt-2 text-xl font-extrabold text-ink">' + rec.title + '</h3>' +
+          '<p class="mt-3 text-slate-700"><span class="font-semibold">Tratamiento sugerido:</span> ' + rec.treatment + '</p>' +
+          '<p class="mt-2 text-slate-700"><span class="font-semibold">Objetivo:</span> ' + rec.focus + '</p>' +
+          '<p class="mt-2 text-sm text-slate-600">' + urgency + '</p>' +
+          '<a href="' + waUrl(WHATSAPP.principal, message) + '" target="_blank" rel="noopener noreferrer" ' +
+            'class="btn mt-5 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-logo-blue px-6 py-3 font-bold text-white shadow-soft">' +
+            'Agendar valoración para ' + rec.title.toLowerCase() +
+          '</a>' +
+          '<p class="mt-4 text-xs text-slate-500">Esta orientación es general y no sustituye una evaluación profesional.</p>';
+
+        resultBox.classList.remove('hidden');
+        hint.classList.add('hidden');
+      }
+
+      zoneBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          selectedZone = btn.dataset.zone;
+          zoneBtns.forEach(function (b) {
+            var active = b === btn;
+            b.classList.toggle('is-selected', active);
+            b.setAttribute('aria-checked', String(active));
+          });
+          renderResult();
+        });
+      });
+
+      painRange.addEventListener('input', function () {
+        painValue.textContent = painRange.value;
+        renderResult();
+      });
+    })();
+  </script>
+</body>
+</html>
